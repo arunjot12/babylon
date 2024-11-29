@@ -437,7 +437,7 @@ func (ms msgServer) CreateBTCDelegation(goCtx context.Context, req *types.MsgCre
 		return nil, types.ErrInvalidUnbondingTx.Wrapf("unbonding tx fee must be larger that 0")
 	}
 
-	minUnbondingValue := caluculateMinimumUnbondingValue(stakingMsgTx.TxOut[stakingOutputIdx], &vp.Params)
+	minUnbondingValue := calculateMinimumUnbondingValue(stakingMsgTx.TxOut[stakingOutputIdx], &vp.Params)
 	if btcutil.Amount(unbondingMsgTx.TxOut[0].Value) < minUnbondingValue {
 		return nil, types.ErrInvalidUnbondingTx.Wrapf("unbonding output value must be at least %s, based on staking output", minUnbondingValue)
 	}

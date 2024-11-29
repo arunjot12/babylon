@@ -147,9 +147,9 @@ func (ms msgServer) EditFinalityProvider(ctx context.Context, req *types.MsgEdit
 	return &types.MsgEditFinalityProviderResponse{}, nil
 }
 
-// caluculateMinimumUnbondingValue calculates minimum unbonding value basend on current staking output value
+// calculateMinimumUnbondingValue calculates minimum unbonding value basend on current staking output value
 // and params.MinUnbondingRate
-func caluculateMinimumUnbondingValue(
+func calculateMinimumUnbondingValue(
 	stakingOutput *wire.TxOut,
 	params *types.Params,
 ) btcutil.Amount {
